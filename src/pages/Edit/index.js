@@ -37,6 +37,7 @@ const Page = () => {
             .then(res => {
                 setModalVisible(true);
             })
+            .catch((err) => console.log(err))
 
         setDisabled(false);
     }

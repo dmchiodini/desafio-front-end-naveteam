@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PageArea, ModalContent } from './styled';
-import { PageContainer, PageTop, ErrorMessage, PageBody } from '../../components/MainComponents';
+import { PageArea } from './styled';
+import { PageContainer, PageTop, PageBody } from '../../components/MainComponents';
 import Header from '../../components/partials/Header';
 import Modal from '../../components/partials/Modal';
 import back from '../../assets/images/back.png';
@@ -42,6 +42,7 @@ const Page = () => {
                 setUrlFoto('');
                 setModalVisible(true);
             })
+            .catch((err) => console.log(err))
 
         setDisabled(false);
     }

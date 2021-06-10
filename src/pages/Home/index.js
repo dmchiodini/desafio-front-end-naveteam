@@ -32,7 +32,8 @@ const Page = ({id="naver"}) => {
             api.get('/navers')
                 .then(res => {
                     setNavers(res.data);
-                })            
+                })  
+                .catch((err) => console.log(err))          
         }        
 
         getNavers();
@@ -46,6 +47,7 @@ const Page = ({id="naver"}) => {
                 setNaverInfo(res.data);
                 setVisibleNaver(true); 
             })
+            .catch((err) => console.log(err)) 
     }
 
     const openModalDel = (id) => {
@@ -57,6 +59,7 @@ const Page = ({id="naver"}) => {
                 setModalDelAlert(true);
                 setModalSucc(false);
             })
+            .catch((err) => console.log(err)) 
     }
 
     const handleBlackgroundClick = (e) => {
