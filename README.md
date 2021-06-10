@@ -1,6 +1,6 @@
 <h1>Front-end Challenge Nave Team</h1>
 
-<h3>Desafio de front-end da Nave Team.</h3>
+<h3>Desafio de front-end Nave Team.</h3>
 
 O projeto é um crud. A comunicação é feita com uma api externa fornecida pela empresa.
 
