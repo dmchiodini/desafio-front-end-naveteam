@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { isLogged } from '../../helpers/AuthHandler';
 import { PageArea } from './styled';
 import { PageContainer, PageTop, PageBody } from '../../components/MainComponents';
 import Header from '../../components/partials/Header';
@@ -11,6 +12,7 @@ import api from '../../helpers/Api';
 
 const Page = () => {
     const { id } =  useParams();
+    let logged = isLogged();
 
     const [ nome, setNome ] = useState('');
     const [ cargo, setCargo ] = useState(''); 
@@ -43,6 +45,10 @@ const Page = () => {
     }
 
     useEffect(() => {
+        if(!logged) {
+            window.location.href = '/login';
+        }
+        
         const getNaver = () => {
             api.get(`/navers/${id}`)
                 .then(res => {              

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { isLogged } from '../../helpers/AuthHandler';
 import { PageArea } from './styled';
 import { PageContainer, PageTop, PageBody } from '../../components/MainComponents';
 import Header from '../../components/partials/Header';
@@ -10,6 +11,7 @@ import close from '../../assets/images/close.png';
 import api from '../../helpers/Api';
 
 const Page = () => {
+    let logged = isLogged();
 
     const [ nome, setNome ] = useState('');
     const [ cargo, setCargo ] = useState(''); 
@@ -46,6 +48,12 @@ const Page = () => {
 
         setDisabled(false);
     }
+
+    useEffect(()=>{
+        if(!logged) {
+            window.location.href = '/login';
+        }
+    }, []);
 
     return (        
         <PageContainer>
